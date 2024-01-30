@@ -1,1 +1,1 @@
-# learning-advance-web-technologies-spring-2023-2024-sec-a
+# learning-APWT-spring-2023-2024-sec-a

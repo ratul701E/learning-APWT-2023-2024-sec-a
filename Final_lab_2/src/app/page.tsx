@@ -1,12 +1,10 @@
-import Link from "next/link";
+import React from 'react'
+import Login from './(auth)/login/page'
 
-export default function Home() {
+function Landing() {
   return (
-    <>
-      <h1 className="text-4xl font-bold text-center mb-4">Welcome</h1>
-      <h4 className="text-lg text-center">
-        View all <Link href={'/employee'} className="text-blue-600 hover:underline">employees</Link>
-      </h4>
-    </>
-  );
+    <Login></Login>
+  )
 }
+
+export default Landing

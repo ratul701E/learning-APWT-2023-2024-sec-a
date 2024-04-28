@@ -9,7 +9,9 @@ function allEmployee() {
     return (
         <div className="p-4">
             <h1 className="text-2xl font-bold mb-4">Employees</h1>
-            <Link href={'/'}><p className="text-red">Back</p></Link>
+            <Link href={'/'}>
+                <button className='bg-grey-600'>Back</button>
+            </Link>
             <span className="mb-4">
                 <Link href="/employee/add_employee" className="text-blue-500 hover:underline">Add new employee</Link>
             </span>

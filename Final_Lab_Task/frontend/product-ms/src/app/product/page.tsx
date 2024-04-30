@@ -50,8 +50,11 @@ function AllProduct() {
                                 price={value.price}
                                 quantity={value.quantity}
                             >
+                                <button className="bg-red-500 hover:bg-red-700 text-white mr-2 font-bold py-2 px-4  rounded">
+                                    Delete
+                                </button>
                                 <Link href={`/product/${value.product_id}/update`}>
-                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  rounded">
                                         Update
                                     </button>
                                 </Link>

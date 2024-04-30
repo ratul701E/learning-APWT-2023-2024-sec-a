@@ -29,7 +29,7 @@ function AllProduct() {
             </Link>
             <br />
             <span className="mb-4">
-                <Link href="/employee/add_employee" className="text-blue-500 hover:underline">
+                <Link href="/product/add-product" className="text-blue-500 hover:underline">
                     <button className="mt-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add new Product</button>
                 </Link>
             </span>

@@ -5,12 +5,12 @@ import React, { SyntheticEvent, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Product, { IProduct } from '@/components/Product'
 
-function updateEmployee({params} : {params: {product_id: string}} ) {
-  const [id, setId] = useState('Loading')
-  const [name, setName] = useState('Loading')
-  const [quantity, setQuantity] = useState('Loading')
-  const [price, setPrice] = useState('Loading')
-  const [description, setDescription] = useState('Loading')
+
+function addEmployee({params} : {params: {product_id: string}} ) {
+  const [name, setName] = useState('')
+  const [quantity, setQuantity] = useState('')
+  const [price, setPrice] = useState('')
+  const [description, setDescription] = useState('')
   const [msg, setMsg] = useState('')
   const router = useRouter()
 
@@ -38,7 +38,7 @@ function updateEmployee({params} : {params: {product_id: string}} ) {
     formData.append('quantity', quantity.toString()) 
     formData.append('price', price.toString()) 
 
-    const response = await axios.patch(process.env.NEXT_PUBLIC_API_ENDPOINT+"/products/" + id, formData, {
+    const response = await axios.post(process.env.NEXT_PUBLIC_API_ENDPOINT+"/products/", formData, {
         headers: {
             //'Content-Type': 'multipart/form-data'
             'Content-Type': 'application/json'
@@ -54,22 +54,10 @@ function updateEmployee({params} : {params: {product_id: string}} ) {
     
   }
 
-  useEffect(() => {
-    async function getProduct() {
-        const res = await axios.get(process.env.NEXT_PUBLIC_API_ENDPOINT + "/products/" + params.product_id)
-        const product : IProduct = res.data
-        setName(product.product_name)
-        setDescription(product.description)
-        setPrice(product.price.toString())
-        setQuantity(product.quantity.toString())
-        setId(product.product_id)
-    }
-    getProduct()
-}, [])
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white mt-20 rounded-md shadow-md">
-      <h1 className="text-2xl font-bold text-black mb-4">Update Product</h1>
+      <h1 className="text-2xl font-bold text-black mb-4">Add Product</h1>
       <p className="text-gray-600 mb-4">Product details</p>
 
       {
@@ -100,8 +88,8 @@ function updateEmployee({params} : {params: {product_id: string}} ) {
           <Link href={'/product'}>
             <button className="bg-gray-300 mr-2 hover:bg-red-400 text-gray-800 font-bold py-2 px-4 rounded">Cancel</button>
           </Link>
-          <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
-            Update
+          <button  className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+            Add
           </button>
         </div>
       </form>
@@ -112,4 +100,4 @@ function updateEmployee({params} : {params: {product_id: string}} ) {
 
 }
 
-export default updateEmployee
+export default addEmployee

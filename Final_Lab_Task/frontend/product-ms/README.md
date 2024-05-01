@@ -16,7 +16,7 @@
 
 ![Project Image](public/product-list-admin.png)
 
-![Project Image](public/manage-customer.png)
+![Project Image](public/add-new-product.png)
 
 ![Project Image](public/update-product.png)
 

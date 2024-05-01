@@ -7,7 +7,7 @@
 
 ![Project Image](public/home-admin.png)
 
-![Project Image](public/customer-admin.png)
+![Project Image](public/home-customer.png)
 
 
 # Product List / Manage Product

@@ -4,11 +4,17 @@ import axios from 'axios'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { SyntheticEvent, useEffect, useState } from 'react'
+import { getCookie, setCookie } from "cookies-next"
+
+export enum Role {
+    ADMIN,
+    CUSTOMER
+}
 
 export interface LOGIN_RESPONSE {
     status: boolean,
     username: string,
-    role: string
+    role: Role
 }
 
 function Login() {
@@ -49,6 +55,7 @@ function Login() {
         console.log(response_data)
         if(response_data.status == true) {
             setMsg('')
+            setCookie('role', response_data.role)
             router.push('/profile/' + response_data.username)
         }
         else {

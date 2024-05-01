@@ -1,7 +1,8 @@
-import { Body, Controller, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { SignupDTO } from './dto/signup.dto';
 import { SigninDTO } from './dto/signin.dto';
+import { retry } from 'rxjs';
 
 @Controller('auth')
 export class AuthController {
@@ -19,5 +20,10 @@ export class AuthController {
   @UsePipes(ValidationPipe)
   async signin(@Body() signinDto: SigninDTO) {
     return await this.authService.signin(signinDto)
+  }
+
+  @Get('exist/:username') 
+  async isUsernameExist(@Param('username') username: string) {
+    return await this.authService.isExistUsername(username)
   }
 }

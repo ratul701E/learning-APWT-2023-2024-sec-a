@@ -4,6 +4,10 @@ import { IsAlpha, IsAlphanumeric, IsEmail, IsNumber, IsNumberString, MaxLength, 
 export class updateUserDto {
     @MaxLength(50)
     @MinLength(4)
+    username: string
+
+    @MaxLength(50)
+    @MinLength(4)
     name: string
 
     @MaxLength(11)

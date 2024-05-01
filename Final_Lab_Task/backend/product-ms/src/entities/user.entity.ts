@@ -1,10 +1,13 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import * as bcrypt from 'bcrypt'
 import { Role } from "src/auth/dto/signup.dto";
 
 
 @Entity('user')
 export class UserEntity {
+    @PrimaryGeneratedColumn()
+    uid: string
+
     @PrimaryColumn({ nullable: false, unique: true })
     username: string
 

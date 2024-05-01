@@ -1,5 +1,6 @@
 'use client'
 
+import { Role } from '@/app/(auth)/login/page';
 import axios from 'axios'
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -32,7 +33,7 @@ function Profile({ params }: { params: { username: string } }) {
                 <div className="flex flex-col items-center mb-6">
                     <img src={'/vercel.svg'} alt="Profile" className="border border-black p-2 w-32 h-32 rounded-full mb-4" />
                     <h1 className="text-3xl font-bold mb-2 text-zinc-950">{user?.name || "loading"}</h1>
-                    <Link  href={'/profile/' + params.username}>
+                    <Link href={'/profile/' + params.username}>
                         <p className="text-blue-500 underline">@{user?.username || "username"}</p>
                     </Link>
                 </div>
@@ -46,27 +47,31 @@ function Profile({ params }: { params: { username: string } }) {
                 </div>
 
                 {
-                    user?.role == 0 ? 
-                    <>
-                        <button className="mb-2 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
-                            Manage Product
-                        </button>
-                        <button className="mb-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
-                            Manage Users
-                        </button>
-                    </>
-                    : 
+                    user?.role == Role.ADMIN ?
+                        <>
+                            <Link href={"/product"}>
+                                <button className="mb-2 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+                                    Manage Product
+                                </button>
+                            </Link>
+                            <Link href={'/users'}>
+                                <button className="mb-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+                                    Manage Users
+                                </button>
+                            </Link>
+                        </>
+                        :
 
-                    <>
-                        <Link href="/product">
-                            <button className="mb-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
-                                Product List
+                        <>
+                            <Link href="/product">
+                                <button className="mb-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+                                    Product List
+                                </button>
+                            </Link>
+                            <button className="mb-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
+                                Cart
                             </button>
-                        </Link>
-                        <button className="mb-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
-                            Cart
-                        </button>
-                    </>
+                        </>
                 }
                 <button onClick={() => router.push('/login')} className="mb-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">
                     Logout

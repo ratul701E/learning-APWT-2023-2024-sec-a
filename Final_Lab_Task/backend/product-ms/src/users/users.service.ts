@@ -36,6 +36,7 @@ export class UsersService {
         res.name = updateUserDto.name
         res.phone = updateUserDto.phone
         res.address = updateUserDto.address
+        res.username = updateUserDto.username
 
         this.userRepo.save(res)
         return true

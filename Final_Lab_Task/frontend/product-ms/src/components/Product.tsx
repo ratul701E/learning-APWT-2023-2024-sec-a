@@ -18,7 +18,7 @@ function Product({ product_id, product_name, description, price, quantity, child
             <h2 className="text-gray-800 text-xl mb-3 font-semibold">{product_name}</h2>
             <p className="text-gray-700 mb-2"><b>Product ID:</b> {product_id}</p>
             <p className="text-gray-700 mb-2 line-clamp-2">{description}</p>
-            <p className="text-gray-700 mb-2"><b>Price:</b> ${price}</p>
+            <p className="text-gray-700 mb-2"><b>Price:</b> ৳{price}</p>
             <p className="text-gray-700 mb-10"><b>Quantity:</b> {quantity}</p>
             <div className='absolute bottom-2 right-2'>
                 {children}

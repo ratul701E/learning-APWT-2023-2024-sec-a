@@ -94,8 +94,8 @@ function updateEmployee({ params }: { params: { username: string } }) {
 
     return (
         <div className="max-w-md mx-auto p-6 bg-white mt-20 rounded-md shadow-md">
-            <h1 className="text-2xl font-bold text-black mb-4">Update Employee</h1>
-            <p className="text-gray-600 mb-4">Employee details</p>
+            <h1 className="text-2xl font-bold text-black mb-4">Update User</h1>
+            <p className="text-gray-600 mb-4">User details</p>
 
             {
                 msg &&
